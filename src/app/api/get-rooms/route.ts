@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export default async function GET() {
   try {
     let rooms = await prisma.rooms.findMany()
     if (!rooms) {
