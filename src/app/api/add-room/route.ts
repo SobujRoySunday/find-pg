@@ -5,10 +5,11 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json()
     const { title, description, imageUrl, rent } = reqBody
-    await prisma.rooms.create({ data: { title: title, description: description, imageUrl: imageUrl, rent } })
+    const room = await prisma.rooms.create({ data: { title: title, description: description, imageUrl: imageUrl, rent } })
     return NextResponse.json({
       message: `New room added`,
-      success: true
+      success: true,
+      room
     })
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
