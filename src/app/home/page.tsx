@@ -5,6 +5,14 @@ import RoomCard from "./RoomCard";
 import axios from "axios";
 import LogoutButton from "./LogoutButton";
 
+interface RoomType {
+  id: string,
+  title: string,
+  description: string,
+  rent: number,
+  imageUrl: string
+}
+
 export default function HomePage() {
   const [rooms, setRooms] = useState([])
 
@@ -29,7 +37,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-5">
           {
             rooms.length ?
-              rooms.map((room) => {
+              rooms.map((room: RoomType) => {
                 return <RoomCard key={room.id} title={room.title} description={room.description} rent={room.rent} imageUrl={room.imageUrl} />
               }) : '0 rooms found'
           }

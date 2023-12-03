@@ -37,7 +37,7 @@ export default function AddRoomPage() {
           <input type="text" value={room.imageUrl} onChange={(e) => setRoom({ ...room, imageUrl: e.target.value })} required />
         </div>
         <div>
-          <label>Image URL:</label>
+          <label>Rent:</label>
           <input type="number" value={room.rent} onChange={(e) => setRoom({ ...room, rent: Number(e.target.value) })} required />
         </div>
         <div>
