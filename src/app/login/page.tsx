@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import axios from "axios"
 import Link from "next/link"
+import { toast } from "react-toastify"
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -18,6 +19,7 @@ export default function SignUpPage() {
       router.push('/home')
     } catch (error: any) {
       console.log(error)
+      toast.error(error)
     }
   }
   return (
